@@ -1,12 +1,28 @@
+from __future__ import with_statement
+
 import clr
-clr.AddReferenceByPartialName("System.Windows.Forms")
-clr.AddReferenceByPartialName("System.Drawing")
+clr.AddReference("System.Windows.Forms")
+clr.AddReference("System.Drawing")
 
 import PygmentsCodeSource 
 
 from System.Windows import Forms
+from System import Drawing
+
 from System.Collections.Generic import Dictionary
 
+
+class LayoutCtxMgr(object):
+  def __init__(self, ctl):
+    self.ctl = ctl
+    
+  def __enter__(self):
+    self.ctl.SuspendLayout()
+    
+  def __exit__(self, t, v, tr):
+    self.ctl.ResumeLayout(False)
+    self.ctl.PerformLayout()
+    
 class SmartContentMock(object):
   __slots__ = ['Properties']
   def __init__(self):
@@ -14,15 +30,43 @@ class SmartContentMock(object):
 
 class WriterMock(Forms.Form):
   def __init__(self):
-    self.Text = "Mock Writer"
-    self.Click += self.OnClick
     
-  def OnClick(sender, args):
+    self.show_plugin_menu_item = Forms.ToolStripMenuItem(
+      Text = "Show Writer Plugin"
+      )
+    self.show_plugin_menu_item.Click += self.OnClick
+      
+    self.menustrip = Forms.MenuStrip()
+    self.menustrip.Items.Add(self.show_plugin_menu_item)    
+    
+    self.html_view = Forms.TextBox(
+      Dock = Forms.DockStyle.Fill,
+      Multiline = True,
+      WordWrap = False,
+      ReadOnly = True,
+      ScrollBars = Forms.ScrollBars.Both
+      )
+      
+    self.splitter = Forms.SplitContainer(
+      Dock = Forms.DockStyle.Fill,
+      )
+    
+    self.splitter.Panel1.Controls.Add(self.html_view)
+    
+    with LayoutCtxMgr(self):
+      self.Text = "Mock Writer"
+      self.ClientSize = Drawing.Size(640,480)
+      self.Controls.Add(self.splitter)
+      self.Controls.Add(self.menustrip)
+    
+    self.splitter.SplitterDistance = self.splitter.Size.Width / 2
+    
+  def OnClick(self, sender, args):
     reload(PygmentsCodeSource)
     
     content = SmartContentMock()
-    if PygmentsCodeSource.CreateContent(sender, content) == Forms.DialogResult.OK:
+    if PygmentsCodeSource.CreateContent(self, content) == Forms.DialogResult.OK:
       html = PygmentsCodeSource.GeneratePublishHtml(content, None)
-      Forms.MessageBox.Show(html)
+      self.html_view.Text = html
 
 Forms.Application.Run(WriterMock())
