@@ -1,6 +1,8 @@
 from __future__ import with_statement
+
 import clr
 clr.AddReference('System.Windows.Forms')
+clr.AddReference('System.Drawing')
 
 from System.Windows import Forms
 from System import Drawing

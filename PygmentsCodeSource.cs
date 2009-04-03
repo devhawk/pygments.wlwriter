@@ -47,9 +47,6 @@ namespace DevHawk
             {
                 MessageBox.Show(ex.Message, ex.Source);
             }
-
-            object o;
-            var worked = _scope.TryGetVariable("CreateContent", out o);
         }
 
         public override DialogResult CreateContent(IWin32Window dialogOwner, ISmartContent newContent)
