@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using WindowsLive.Writer.Api;
+using Microsoft.Scripting.Hosting;
 
 namespace DevHawk
 {
@@ -10,6 +11,21 @@ namespace DevHawk
     [InsertableContentSource("Insert Pygmented Code", SidebarText = "Pygmented Code")]
     public class PygmentsCodeSource : SmartContentSource
     {
+        static ScriptEngine _engine;
+        static ScriptSource _source;
+
+        ScriptScope _scope;
+
+        static PygmentsCodeSource()
+        {
+            _engine = IronPython.Hosting.Python.CreateEngine();
+        }
+
+        public PygmentsCodeSource()
+        {
+            _scope = _engine.CreateScope();
+        }
+
         public override System.Windows.Forms.DialogResult CreateContent(IWin32Window dialogOwner, ISmartContent newContent)
         {
             throw new NotImplementedException();
