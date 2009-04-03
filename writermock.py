@@ -2,9 +2,15 @@ import clr
 clr.AddReferenceByPartialName("System.Windows.Forms")
 clr.AddReferenceByPartialName("System.Drawing")
 
-from System.Windows import Forms
-
 import PygmentsCodeSource 
+
+from System.Windows import Forms
+from System.Collections.Generic import Dictionary
+
+class SmartContentMock(object):
+  __slots__ = ['Properties']
+  def __init__(self):
+    self.Properties = Dictionary[str,str]() 
 
 class WriterMock(Forms.Form):
   def __init__(self):
@@ -13,7 +19,10 @@ class WriterMock(Forms.Form):
     
   def OnClick(sender, args):
     reload(PygmentsCodeSource)
-    PygmentsCodeSource.CreateContent(sender, None)
     
+    content = SmartContentMock()
+    if PygmentsCodeSource.CreateContent(sender, content) == Forms.DialogResult.OK:
+      html = PygmentsCodeSource.GeneratePublishHtml(content, None)
+      Forms.MessageBox.Show(html)
 
 Forms.Application.Run(WriterMock())
