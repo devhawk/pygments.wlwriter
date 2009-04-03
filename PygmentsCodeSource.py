@@ -3,9 +3,11 @@ from __future__ import with_statement
 import clr
 clr.AddReference('System.Windows.Forms')
 clr.AddReference('System.Drawing')
+clr.AddReference('WindowsLive.Writer.Api')
 
 from System.Windows import Forms
 from System import Drawing
+from WindowsLive.Writer.Api import SmartContentEditor
 
 class LayoutCtxMgr(object):
   def __init__(self, ctl):
@@ -70,8 +72,20 @@ class CodeInsertForm(Forms.Form):
       self.cancel_button.Location = Drawing.Point(cancel_left, vmargin)
       self.ok_button.Location = Drawing.Point(ok_left, vmargin)
       
-    
-
+class PygmentedCodeEditor(SmartContentEditor):
+  def __init__(self):
+    self.BackColor = Drawing.Color.Gold
+    self.panel = Forms.Panel(
+      Dock = Forms.DockStyle.Fill,
+      BackColor = Drawing.Color.DeepSkyBlue,
+      )
+    self.label = Forms.Label(
+      Text = "Pygmented Code",
+      )
+    with LayoutCtxMgr(self):
+      self.Text = "Pygmented Code"
+      self.Controls.Add(self.label)
+      #self.panel.Controls.Add(self.label)
 
 def CreateContent(dialogOwner, newContent):
   frm = CodeInsertForm()
@@ -81,7 +95,7 @@ def CreateContent(dialogOwner, newContent):
   return result
     
 def CreateEditor(editorSite):
-  return None
+  return PygmentedCodeEditor()
   
 def GeneratePublishHtml(content, publishingContext):
   return "<pre>\n" + content.Properties["code"] + "\n</pre>"
