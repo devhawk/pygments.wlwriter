@@ -1,4 +1,6 @@
 from __future__ import with_statement
+import sys
+sys.path.append(r'C:\Program Files\Windows Live\Writer')
 
 import clr
 clr.AddReference("System.Windows.Forms")
@@ -34,10 +36,14 @@ class WriterMock(Forms.Form):
     self.show_plugin_menu_item = Forms.ToolStripMenuItem(
       Text = "Show Writer Plugin"
       )
-    self.show_plugin_menu_item.Click += self.OnClick
-      
+    self.edit_content_menu_item = Forms.ToolStripMenuItem(
+      Text = "Edit Content Plugin"
+      )
+    self.show_plugin_menu_item.Click += self.ShowPlugin
+    self.edit_content_menu_item.Click += self.EditContent      
     self.menustrip = Forms.MenuStrip()
     self.menustrip.Items.Add(self.show_plugin_menu_item)    
+    self.menustrip.Items.Add(self.edit_content_menu_item)
     
     self.html_view = Forms.TextBox(
       Dock = Forms.DockStyle.Fill,
@@ -60,8 +66,13 @@ class WriterMock(Forms.Form):
       self.Controls.Add(self.menustrip)
     
     self.splitter.SplitterDistance = self.splitter.Size.Width / 2
+  
+  def EditContent(self, sender, args):
+    reload(PygmentsCodeSource)
+
+    print PygmentsCodeSource.CreateEditor(None)
     
-  def OnClick(self, sender, args):
+  def ShowPlugin(self, sender, args):
     reload(PygmentsCodeSource)
     
     content = SmartContentMock()
