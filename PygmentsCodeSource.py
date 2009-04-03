@@ -1,10 +1,15 @@
 import clr
 clr.AddReference('System.Windows.Forms')
 
-from System.Windows.Forms import DialogResult
+from System.Windows.Forms import Form, DialogResult
+
+class CodeInsertForm(Form):
+  def __init__(self):
+    self.Text = "Insert Code to Pygmentize"
 
 def CreateContent(dialogOwner, newContent):
-  return DialogResult.OK
+  frm = CodeInsertForm()
+  return frm.ShowDialog(dialogOwner)
   
 def CreateEditor(editorSite):
   return None
