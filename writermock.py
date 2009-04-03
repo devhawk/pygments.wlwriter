@@ -12,6 +12,7 @@ class WriterMock(Forms.Form):
     self.Click += self.OnClick
     
   def OnClick(sender, args):
+    reload(PygmentsCodeSource)
     PygmentsCodeSource.CreateContent(sender, None)
     
 
