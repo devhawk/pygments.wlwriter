@@ -2,6 +2,8 @@
 using System.Windows.Forms;
 using WindowsLive.Writer.Api;
 using Microsoft.Scripting.Hosting;
+using IronPython.Runtime;
+using System.IO;
 
 namespace DevHawk
 {
@@ -16,35 +18,63 @@ namespace DevHawk
         static ScriptSource _source;
 
         ScriptScope _scope;
+        PythonFunction _CreateContent;
+        PythonFunction _CreateEditor;
+        PythonFunction _GeneratePublishHtml;
 
-        static PygmentsCodeSource()
+        private void InitializeHosting()
         {
+            var asm = System.Reflection.Assembly.GetAssembly(typeof(PygmentsCodeSource));
+            var folder = Path.GetDirectoryName(asm.Location);
+            
             _engine = IronPython.Hosting.Python.CreateEngine();
+            _engine.SetSearchPaths(new string[] { folder });
+
+            _source = _engine.CreateScriptSourceFromFile(Path.Combine(folder, "PygmentsCodeSource.py"));
         }
 
         public PygmentsCodeSource()
         {
-            _scope = _engine.CreateScope();
+            if (_engine == null)
+                InitializeHosting();
+
+            try
+            {
+                _scope = _engine.CreateScope();
+                _source.Execute(_scope);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source);
+            }
+
+            object o;
+            var worked = _scope.TryGetVariable("CreateContent", out o);
         }
 
-        public override System.Windows.Forms.DialogResult CreateContent(IWin32Window dialogOwner, ISmartContent newContent)
+        public override DialogResult CreateContent(IWin32Window dialogOwner, ISmartContent newContent)
         {
-            throw new NotImplementedException();
+            if (_CreateContent == null)
+               _CreateContent = _scope.GetVariable<PythonFunction>("CreateContent");
+
+            return (DialogResult)_CreateContent.Target.DynamicInvoke(dialogOwner, newContent);
         }
 
         public override SmartContentEditor CreateEditor(ISmartContentEditorSite editorSite)
         {
-            throw new NotImplementedException();
+            if (_CreateEditor == null)
+                _CreateEditor = _scope.GetVariable<PythonFunction>("CreateEditor");
+
+            return (SmartContentEditor)_CreateEditor.Target.DynamicInvoke(editorSite);
         }
 
         public override string GeneratePublishHtml(ISmartContent content, IPublishingContext publishingContext)
         {
-            throw new NotImplementedException();
-        }
+            if (_GeneratePublishHtml == null)
+                _GeneratePublishHtml = _scope.GetVariable<PythonFunction>("GeneratePublishHtml");
 
-        public override string GenerateEditorHtml(ISmartContent content, IPublishingContext publishingContext)
-        {
-            throw new NotImplementedException();
+            return (string)_GeneratePublishHtml.Target.DynamicInvoke(content, publishingContext);
+
         }
     }
 }
