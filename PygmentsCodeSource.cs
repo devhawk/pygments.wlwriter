@@ -6,8 +6,9 @@ using Microsoft.Scripting.Hosting;
 namespace DevHawk
 {
     [WriterPlugin("2EC9848E-067D-4e79-BAB7-06CA927DB962", "Pygments.WLWriter",
-    Description = "Code Colorizer using Python pygments package",
-    PublisherUrl = "http://devhawk.net")]
+        Description = "Code Colorizer using Python pygments package", 
+        ImagePath="icon_16.png",
+        PublisherUrl = "http://devhawk.net")]
     [InsertableContentSource("Insert Pygmented Code", SidebarText = "Pygmented Code")]
     public class PygmentsCodeSource : SmartContentSource
     {

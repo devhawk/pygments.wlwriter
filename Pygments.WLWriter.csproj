@@ -8,7 +8,7 @@
     <ProjectGuid>{37F64790-0DD7-492D-BC02-DFA737932220}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pygments.WLWriter</RootNamespace>
+    <RootNamespace>DevHawk</RootNamespace>
     <AssemblyName>Pygments.WLWriter</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -64,6 +64,9 @@
   <ItemGroup>
     <Compile Include="PygmentsCodeSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="icon_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
