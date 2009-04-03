@@ -9,6 +9,14 @@ from System.Windows import Forms
 from System import Drawing
 from WindowsLive.Writer.Api import SmartContentEditor
 
+from pygments.lexers import get_all_lexers
+from pygments.styles import get_all_styles
+
+lexers = [l[0] for l in get_all_lexers()]
+lexers.sort()
+styles = list(get_all_styles())
+styles.sort()
+
 class LayoutCtxMgr(object):
   def __init__(self, ctl):
     self.ctl = ctl
@@ -73,19 +81,48 @@ class CodeInsertForm(Forms.Form):
       self.ok_button.Location = Drawing.Point(ok_left, vmargin)
       
 class PygmentedCodeEditor(SmartContentEditor):
-  def __init__(self):
-    self.BackColor = Drawing.Color.Gold
+  def __init__(self): 
     self.panel = Forms.Panel(
-      Dock = Forms.DockStyle.Fill,
-      BackColor = Drawing.Color.DeepSkyBlue,
       )
     self.label = Forms.Label(
       Text = "Pygmented Code",
+      Location = Drawing.Point(3,0),
       )
+    self.lexer_label = Forms.Label(
+      Text = "Language Lexer",
+      Location = Drawing.Point(3,29),
+      )
+    self.style_label = Forms.Label(
+      Text = "Color Scheme",
+      Location = Drawing.Point(3,69),
+      )
+    self.lexer_selector = Forms.ComboBox(
+      DropDownStyle = Forms.ComboBoxStyle.DropDownList,
+      Location = Drawing.Point(3, 45),
+      Size = Drawing.Size(144, 21),
+      )
+    for lexer in lexers:
+      self.lexer_selector.Items.Add(lexer)
+      
+    self.style_selector = Forms.ComboBox(
+      DropDownStyle = Forms.ComboBoxStyle.DropDownList,
+      Location = Drawing.Point(3, 85),
+      Size = Drawing.Size(144, 21),
+      )
+    for style in styles:
+      self.style_selector.Items.Add(style)
+      
     with LayoutCtxMgr(self):
       self.Text = "Pygmented Code"
-      self.Controls.Add(self.label)
-      #self.panel.Controls.Add(self.label)
+      self.Controls.Add(self.panel)
+      
+      self.panel.Controls.Add(self.label)
+      self.panel.Controls.Add(self.lexer_selector)
+      self.panel.Controls.Add(self.style_selector)
+      self.panel.Controls.Add(self.lexer_label)
+      self.panel.Controls.Add(self.style_label)
+            
+    self.panel.Size = self.Size
 
 def CreateContent(dialogOwner, newContent):
   frm = CodeInsertForm()

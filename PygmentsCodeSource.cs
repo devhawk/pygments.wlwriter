@@ -28,7 +28,7 @@ namespace DevHawk
             var folder = Path.GetDirectoryName(asm.Location);
             
             _engine = IronPython.Hosting.Python.CreateEngine();
-            _engine.SetSearchPaths(new string[] { folder });
+            _engine.SetSearchPaths(new string[] { folder, @"c:\Program Files\IronPython 2.0.1\Lib" });
 
             _source = _engine.CreateScriptSourceFromFile(Path.Combine(folder, "PygmentsCodeSource.py"));
         }
