@@ -17,6 +17,11 @@ class LayoutCtxMgr(object):
     self.ctl.PerformLayout()
 
 class CodeInsertForm(Forms.Form):
+  
+  @property
+  def Code(self):
+    return self.code_text_box.Text
+  
   def __init__(self):
   
     self.bottom_panel = Forms.Panel(
@@ -62,15 +67,20 @@ class CodeInsertForm(Forms.Form):
       ok_left = cancel_left - vmargin - self.ok_button.Size.Width
       self.cancel_button.Location = Drawing.Point(cancel_left, vmargin)
       self.ok_button.Location = Drawing.Point(ok_left, vmargin)
+      
+    
 
 
 def CreateContent(dialogOwner, newContent):
   frm = CodeInsertForm()
-  return frm.ShowDialog(dialogOwner)
-  
+  result = frm.ShowDialog(dialogOwner)
+  if result == Forms.DialogResult.OK:
+    newContent.Properties["code"] = frm.Code
+  return result
+    
 def CreateEditor(editorSite):
   return None
   
 def GeneratePublishHtml(content, publishingContext):
-  return "<pre>spam, spam, spam, baked beans and spam</pre>"
+  return "<pre>\n" + content.Properties["code"] + "\n</pre>"
   
