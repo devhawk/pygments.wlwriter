@@ -9,10 +9,23 @@ from System.Windows import Forms
 from System import Drawing
 from WindowsLive.Writer.Api import SmartContentEditor
 
-from pygments.lexers import get_all_lexers
-from pygments.styles import get_all_styles
+from pygments import highlight
+from pygments.lexers import get_all_lexers, get_lexer_by_name
+from pygments.styles import get_all_styles, get_style_by_name
+from pygments.formatters import HtmlFormatter
 
-lexers = [l[0] for l in get_all_lexers()]
+class LexerItem(object):
+  def __init__(self, lang_tuple):
+    self.longname = lang_tuple[0]
+    self.lookup = lang_tuple[1][0]
+    
+  def __str__(self):
+    return self.longname
+    
+  def ToString(self):
+    return self.longname
+
+lexers = [LexerItem(l) for l in get_all_lexers()]
 lexers.sort()
 styles = list(get_all_styles())
 styles.sort()
@@ -80,8 +93,10 @@ class CodeInsertForm(Forms.Form):
       self.cancel_button.Location = Drawing.Point(cancel_left, vmargin)
       self.ok_button.Location = Drawing.Point(ok_left, vmargin)
       
+
 class PygmentedCodeEditor(SmartContentEditor):
-  def __init__(self): 
+  def __init__(self, editorSite): 
+    self.editor_site = editorSite
     self.panel = Forms.Panel(
       )
     self.label = Forms.Label(
@@ -111,7 +126,10 @@ class PygmentedCodeEditor(SmartContentEditor):
       )
     for style in styles:
       self.style_selector.Items.Add(style)
-      
+    
+    self.lexer_selector.SelectionChangeCommitted += self.LexerSelectionChangeCommitted
+    self.lexer_selector.SelectionChangeCommitted += self.StyleSelectionChangeCommitted
+    
     with LayoutCtxMgr(self):
       self.Text = "Pygmented Code"
       self.Controls.Add(self.panel)
@@ -124,6 +142,14 @@ class PygmentedCodeEditor(SmartContentEditor):
             
     self.panel.Size = self.Size
 
+  def LexerSelectionChangeCommitted(self, sender, args):
+    self.SelectedContent.Properties["lexer"] = self.lexer_selector.SelectedItem.lookup
+    self.OnContentEdited()
+
+  def StyleSelectionChangeCommitted(self, sender, args):
+    self.SelectedContent.Properties["style"] = self.style_selector.SelectedItem
+    self.OnContentEdited()
+  
 def CreateContent(dialogOwner, newContent):
   frm = CodeInsertForm()
   result = frm.ShowDialog(dialogOwner)
@@ -132,8 +158,14 @@ def CreateContent(dialogOwner, newContent):
   return result
     
 def CreateEditor(editorSite):
-  return PygmentedCodeEditor()
+  return PygmentedCodeEditor(editorSite)
   
 def GeneratePublishHtml(content, publishingContext):
-  return "<pre>\n" + content.Properties["code"] + "\n</pre>"
-  
+  Forms.MessageBox.Show(content.Properties["lexer"])
+  code = content.Properties["code"]
+  try:
+    lexer = get_lexer_by_name(content.Properties["lexer"])
+  except:
+    lexer = get_lexer_by_name("text")
+    
+  return highlight(code, lexer, HtmlFormatter())
