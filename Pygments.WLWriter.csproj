@@ -50,7 +50,10 @@
       <HintPath>C:\Program Files\IronPython 2.0.1\Microsoft.Scripting.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
     <Reference Include="WindowsLive.Writer.Api, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Windows Live\Writer\WindowsLive.Writer.Api.dll</HintPath>
@@ -58,11 +61,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeInsertForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeInsertForm.Designer.cs">
+      <DependentUpon>CodeInsertForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PygmentsCodeSidebar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PygmentsCodeSidebar.Designer.cs">
+      <DependentUpon>PygmentsCodeSidebar.cs</DependentUpon>
+    </Compile>
     <Compile Include="PygmentsCodeSource.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CodeInsertForm.resx">
+      <DependentUpon>CodeInsertForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="icon_16.png" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PygmentsCodeSidebar.resx">
+      <DependentUpon>PygmentsCodeSidebar.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="PygmentsCodeSource.py">

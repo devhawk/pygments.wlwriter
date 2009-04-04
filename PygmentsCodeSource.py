@@ -226,16 +226,6 @@ class PygmentedCodeEditor(SmartContentEditor):
     self.SelectedContent.Properties["style"] = self.style_selector.SelectedItem
     self.OnContentEdited()
   
-def CreateContent(dialogOwner, newContent):
-  frm = CodeInsertForm()
-  result = frm.ShowDialog(dialogOwner)
-  if result == Forms.DialogResult.OK:
-    newContent.Properties["code"] = frm.Code
-  return result
-    
-def CreateEditor(editorSite):
-  return PygmentedCodeEditor(editorSite)
-  
 def GeneratePublishHtml(content, publishingContext):
   Forms.MessageBox.Show("GeneratePublishHtml")
   code = content.Properties["code"]
@@ -250,3 +240,11 @@ def GeneratePublishHtml(content, publishingContext):
     formatter = DevHawkHtmlFormatter()
     
   return highlight(code, lexer, formatter)
+
+def get_lexers(): 
+  return get_all_lexers()
+
+def generate_html(code, lexer_name):
+  if not lexer_name: lexer_name = "text"
+  lexer = get_lexer_by_name(lexer_name)
+  return highlight(code, lexer, DevHawkHtmlFormatter())
