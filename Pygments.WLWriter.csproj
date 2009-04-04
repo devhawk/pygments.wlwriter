@@ -100,8 +100,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="__future__.py">
+    <None Include="devhawk_formatter.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="__future__.py">
     </None>
   </ItemGroup>
   <ItemGroup>
