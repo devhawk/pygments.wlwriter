@@ -11,20 +11,22 @@ namespace DevHawk
 {
     public partial class PygmentsCodeSidebar : SmartContentEditor
     {
-        public PygmentsCodeSidebar(List<PygmentLanguage> languages)
+        public PygmentsCodeSidebar(IEnumerable<PygmentLanguage> languages, IEnumerable<string> styles)
         {
             InitializeComponent();
 
             foreach (var lang in languages)
-            {
                 language_selector.Items.Add(lang);
-            }
+
+            foreach (var style in styles)
+                style_selector.Items.Add(style);
         }
 
         private void language_selector_SelectedIndexChanged(object sender, EventArgs e)
         {
             var lang = (PygmentLanguage)language_selector.SelectedItem;
             SelectedContent.Properties["language"] = lang.LookupName;
+            SelectedContent.Properties.Remove("html");
             OnContentEdited();
         }
 
@@ -37,8 +39,17 @@ namespace DevHawk
             if (result == DialogResult.OK)
             {
                 SelectedContent.Properties["code"] = form.Code;
+                SelectedContent.Properties.Remove("html");
                 OnContentEdited();
             }
+        }
+
+        private void style_selector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var style = (string)style_selector.SelectedItem;
+            SelectedContent.Properties["style"] = style;
+            SelectedContent.Properties.Remove("html");
+            OnContentEdited();
         }
     }
 }

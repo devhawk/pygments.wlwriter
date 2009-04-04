@@ -34,6 +34,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.language_selector = new System.Windows.Forms.ComboBox();
             this.edit_code_button = new System.Windows.Forms.Button();
+            this.style_selector = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +71,7 @@
             // 
             this.language_selector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.language_selector.FormattingEnabled = true;
-            this.language_selector.Location = new System.Drawing.Point(6, 145);
+            this.language_selector.Location = new System.Drawing.Point(3, 145);
             this.language_selector.Name = "language_selector";
             this.language_selector.Size = new System.Drawing.Size(154, 21);
             this.language_selector.Sorted = true;
@@ -78,7 +80,7 @@
             // 
             // edit_code_button
             // 
-            this.edit_code_button.Location = new System.Drawing.Point(6, 172);
+            this.edit_code_button.Location = new System.Drawing.Point(3, 229);
             this.edit_code_button.Name = "edit_code_button";
             this.edit_code_button.Size = new System.Drawing.Size(154, 23);
             this.edit_code_button.TabIndex = 4;
@@ -86,10 +88,32 @@
             this.edit_code_button.UseVisualStyleBackColor = true;
             this.edit_code_button.Click += new System.EventHandler(this.edit_code_button_Click);
             // 
+            // style_selector
+            // 
+            this.style_selector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.style_selector.FormattingEnabled = true;
+            this.style_selector.Location = new System.Drawing.Point(3, 185);
+            this.style_selector.Name = "style_selector";
+            this.style_selector.Size = new System.Drawing.Size(154, 21);
+            this.style_selector.Sorted = true;
+            this.style_selector.TabIndex = 6;
+            this.style_selector.SelectedIndexChanged += new System.EventHandler(this.style_selector_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 169);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Style";
+            // 
             // PygmentsCodeSidebar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.style_selector);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.edit_code_button);
             this.Controls.Add(this.language_selector);
             this.Controls.Add(this.label2);
@@ -109,5 +133,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox language_selector;
         private System.Windows.Forms.Button edit_code_button;
+        private System.Windows.Forms.ComboBox style_selector;
+        private System.Windows.Forms.Label label3;
     }
 }

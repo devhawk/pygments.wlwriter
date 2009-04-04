@@ -86,9 +86,10 @@ namespace DevHawk
             }
         }
 
-        List<PygmentLanguage> _lanugages;
+        string[] _styles;
+        PygmentLanguage[] _lanugages;
 
-        public List<PygmentLanguage> Languages
+        public PygmentLanguage[] Languages
         {
             get
             {
@@ -100,16 +101,17 @@ namespace DevHawk
 
                         var f = _scope.GetVariable<PythonFunction>("get_lexers");
                         var r = (PythonGenerator)f.Target.DynamicInvoke();
-                        _lanugages = new List<PygmentLanguage>();
+                        var lanugages_list = new List<PygmentLanguage>();
                         foreach (PythonTuple o in r)
                         {
-                            _lanugages.Add(new PygmentLanguage()
+                            lanugages_list.Add(new PygmentLanguage()
                                 {
                                     LongName = (string)o[0],
                                     LookupName = (string)((PythonTuple)o[1])[0]
                                 });
                         }
 
+                        _lanugages = lanugages_list.ToArray();
                     }
                 }
 
@@ -117,17 +119,49 @@ namespace DevHawk
             }
         }
 
-        public string Highlight(string code, string lexer_name)
+        public string[] Styles
         {
+            get
+            {
+                if (_styles == null)
+                {
+                    using (var wc = new WaitCursor())
+                    {
+                        _init_thread.Join();
+
+                        var f = _scope.GetVariable<PythonFunction>("get_styles");
+                        var r = (PythonGenerator)f.Target.DynamicInvoke();
+                        var styles_list = new List<string>();
+                        foreach (string o in r)
+                        {
+                            styles_list.Add(o);
+                        }
+
+                        _styles = styles_list.ToArray();
+                    }
+                }
+
+                return _styles;
+            }
+        }
+
+        PythonFunction _highlight_function;
+
+        public string Highlight(string code, string lexer_name, string style_name)
+        {
+            if (_highlight_function == null)
+            {
+                using (var wc = new WaitCursor())
+                {
+                    _init_thread.Join();
+
+                    _highlight_function = _scope.GetVariable<PythonFunction>("generate_html");
+                }
+            }
+
             using (var wc = new WaitCursor())
             {
-                _init_thread.Join();
-
-                var f = _scope.GetVariable<PythonFunction>("generate_html");
-                var r = (string)f.Target.DynamicInvoke(code, lexer_name);
-
-                return r;
-
+                return (string)_highlight_function.Target.DynamicInvoke(code, lexer_name, style_name);
             }
         }
 
@@ -148,13 +182,19 @@ namespace DevHawk
 
         public override SmartContentEditor CreateEditor(ISmartContentEditorSite editorSite)
         {
-            return new PygmentsCodeSidebar(Languages);
+            return new PygmentsCodeSidebar(Languages, Styles);
         }
 
         public override string GeneratePublishHtml(ISmartContent content, IPublishingContext publishingContext)
         {
-            var html = Highlight(content.Properties["code"], content.Properties["language"]);
-            return html;
+            if (!content.Properties.Contains("html"))
+            {
+                content.Properties["html"] = Highlight(
+                    content.Properties["code"],
+                    content.Properties["language"],
+                    content.Properties["style"]);
+            }
+            return content.Properties["html"];
         }
     }
 }
