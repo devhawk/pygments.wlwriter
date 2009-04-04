@@ -5,14 +5,14 @@ sys.path.append(r'C:\Program Files\Windows Live\Writer')
 import clr
 clr.AddReference("System.Windows.Forms")
 clr.AddReference("System.Drawing")
-
+clr.AddReference("WindowsLive.Writer.Api")
 import PygmentsCodeSource 
 
 from System.Windows import Forms
 from System import Drawing
 
 from System.Collections.Generic import Dictionary
-
+from WindowsLive.Writer.Api import ISmartContent, IProperties
 
 class LayoutCtxMgr(object):
   def __init__(self, ctl):
@@ -25,10 +25,25 @@ class LayoutCtxMgr(object):
     self.ctl.ResumeLayout(False)
     self.ctl.PerformLayout()
     
-class SmartContentMock(object):
-  __slots__ = ['Properties']
+class SmartContentMock(ISmartContent):
+  class PropertiesMock(IProperties):
+    def __init__(self):
+      self._props = Dictionary[str,str]() 
+    
+    def Contains(self, name):
+      return self._props.ContainsKey(name)
+      
+    def __getitem__(self, key):
+      return self._props[key]
+      
+    def __setitem__(self, key, value):
+      self._props[key] = value
+    
   def __init__(self):
-    self.Properties = Dictionary[str,str]() 
+    self.Properties = SmartContentMock.PropertiesMock()
+  
+  def Contains(self, name):
+    return self.Properties.ContainsKey(name)
 
 class WriterMock(Forms.Form):
   def __init__(self):
@@ -75,9 +90,12 @@ class WriterMock(Forms.Form):
   def ShowPlugin(self, sender, args):
     reload(PygmentsCodeSource)
     
-    content = SmartContentMock()
-    if PygmentsCodeSource.CreateContent(self, content) == Forms.DialogResult.OK:
-      html = PygmentsCodeSource.GeneratePublishHtml(content, None)
+    self.content = SmartContentMock()
+    if PygmentsCodeSource.CreateContent(self, self.content) == Forms.DialogResult.OK:
+      html = PygmentsCodeSource.GeneratePublishHtml(self.content, None)
+      editor = PygmentsCodeSource.CreateEditor(None)
+      editor.SelectedContent = self.content
+      self.splitter.Panel2.Controls.Add(editor)
       self.html_view.Text = html
 
 Forms.Application.Run(WriterMock())
