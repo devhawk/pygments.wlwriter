@@ -1,1 +1,0 @@
-..\External\ipy.exe .\build_pygments.py
