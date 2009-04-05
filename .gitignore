@@ -2,3 +2,5 @@ Pygments.WLWriter/bin/*
 Pygments.WLWriter/obj/*
 *.suo
 Pygments.WLWriter/*.csproj.user
+External/pygments.dll
+*.sln.cache
