@@ -22,14 +22,6 @@ namespace DevHawk
                 style_selector.Items.Add(style);
         }
 
-        private void language_selector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var lang = (PygmentLanguage)language_selector.SelectedItem;
-            SelectedContent.Properties["language"] = lang.LookupName;
-            SelectedContent.Properties.Remove("html");
-            OnContentEdited();
-        }
-
         private void edit_code_button_Click(object sender, EventArgs e)
         {
             var form = new CodeInsertForm();
@@ -44,7 +36,15 @@ namespace DevHawk
             }
         }
 
-        private void style_selector_SelectedIndexChanged(object sender, EventArgs e)
+        private void language_selector_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var lang = (PygmentLanguage)language_selector.SelectedItem;
+            SelectedContent.Properties["language"] = lang.LookupName;
+            SelectedContent.Properties.Remove("html");
+            OnContentEdited();
+        }
+
+        private void style_selector_SelectionChangeCommitted(object sender, EventArgs e)
         {
             var style = (string)style_selector.SelectedItem;
             SelectedContent.Properties["style"] = style;

@@ -6,6 +6,7 @@ using IronPython.Runtime;
 using System.IO;
 using System.Threading;
 using System.Collections.Generic;
+using Microsoft.Scripting;
 
 namespace DevHawk
 {
@@ -40,11 +41,25 @@ namespace DevHawk
         }
     }
 
+    class BasicStreamContentProvider : StreamContentProvider
+    {
+        Stream _stream;
+
+        public BasicStreamContentProvider(Stream stream)
+        {
+            _stream = stream;
+        }
+        public override Stream GetStream()
+        {
+            return _stream;
+        }
+    }
+
     [WriterPlugin("2EC9848E-067D-4e79-BAB7-06CA927DB962", "Pygments.WLWriter",
         Description = "Code Colorizer using Python pygments package", 
         ImagePath="icon_16.png",
         PublisherUrl = "http://devhawk.net")]
-    [InsertableContentSource("Insert Pygmented Code", SidebarText = "Pygmented Code")]
+    [InsertableContentSource("Insert Pygmented Code", SidebarText = "Pygment Code")]
     public class PygmentsCodeSource : SmartContentSource
     {
         static ScriptEngine _engine;
@@ -55,13 +70,19 @@ namespace DevHawk
 
         private void InitializeHosting()
         {
-            var asm = System.Reflection.Assembly.GetAssembly(typeof(PygmentsCodeSource));
-            var folder = Path.GetDirectoryName(asm.Location);
+            //var asm = System.Reflection.Assembly.GetAssembly(typeof(PygmentsCodeSource));
+            //var folder = Path.GetDirectoryName(asm.Location);
             
             _engine = IronPython.Hosting.Python.CreateEngine();
-            _engine.SetSearchPaths(new string[] { folder, @"c:\Program Files\IronPython 2.0.1\Lib" });
+            //_engine.SetSearchPaths(new string[] { folder, @"c:\Program Files\IronPython 2.0.1\Lib" });
 
-            _source = _engine.CreateScriptSourceFromFile(Path.Combine(folder, "PygmentsCodeSource.py"));
+            System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
+            var stream = asm.GetManifestResourceStream("DevHawk.PygmentsCodeSource.py");
+            var names = asm.GetManifestResourceNames();
+
+            _source = _engine.CreateScriptSource(new BasicStreamContentProvider(stream), "PygmentsCodeSource.py");
+
+            //_source = _engine.CreateScriptSourceFromFile(Path.Combine(folder, "PygmentsCodeSource.py"));
         }
 
         public PygmentsCodeSource()
