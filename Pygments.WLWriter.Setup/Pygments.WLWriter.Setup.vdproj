@@ -1110,9 +1110,31 @@
         }
         "LaunchCondition"
         {
+            "{836E08B8-0285-4809-BA42-01DB6754A45D}:_05F21B8F70A84685A258CD68D8AC0D6B"
+            {
+            "Name" = "8:WLWriter Installed"
+            "Condition" = "8:FILEEXISTS1"
+            "Message" = "8:Windows Live Writer doesn't appear to be installed. Do you want to install it?"
+            "InstallUrl" = "8:http://download.live.com/"
+            }
         }
         "Locator"
         {
+            "{39E1837C-0DB9-45A2-89C8-438377A77565}:_6433CD726B7D4F58A53B67758A089996"
+            {
+            "Name" = "8:Search for WLWriter EXE"
+            "Folder" = "8:[ProgramFilesFolder]\\Windows Live"
+            "Depth" = "2:1"
+            "FileName" = "8:WindowsLiveWriter.exe"
+            "MinVesion" = "8:"
+            "MaxVersion" = "8:"
+            "MinSize" = "8:"
+            "MaxSize" = "8:"
+            "MinDate" = "8:"
+            "MaxDate" = "8:"
+            "Languages" = "8:"
+            "Property" = "8:FILEEXISTS1"
+            }
         }
         "MsiBootstrapper"
         {
@@ -1122,9 +1144,9 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Pygments.WLWriter"
+        "ProductName" = "8:Pygments for Windows Live Writer"
         "ProductCode" = "8:{22C7935B-C546-428A-8941-8245A6FC8C8B}"
-        "PackageCode" = "8:{96CBB1AC-FDCF-4A97-BAB4-DEB9BC9B46C0}"
+        "PackageCode" = "8:{048D92BC-CCDE-47BF-81F0-F4AAF61DE430}"
         "UpgradeCode" = "8:{FB72E440-B840-4272-9367-3D74653B3F5F}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -1134,7 +1156,7 @@
         "Manufacturer" = "8:DevHawk"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Pygments.WLWriter"
+        "Title" = "8:Pygments for Windows Live Writer"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Harry Pierson"
         "Keywords" = "8:"
@@ -1200,47 +1222,33 @@
                         {
                             "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_9AD199DBC5E64D0BA346A331DACC4468"
                             {
-                            "Name" = "8:Windows Live"
+                            "Name" = "8:Windows Live Writer"
                             "Condition" = "8:"
                             "AlwaysCreate" = "11:FALSE"
                             "DeleteAtUninstall" = "11:FALSE"
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
-                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_3A02ACF901564B2A93192659A725194B"
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_1AB7BF73B6A14B9497673437B2378CFF"
                                     {
-                                    "Name" = "8:Writer"
+                                    "Name" = "8:PluginAssemblies"
                                     "Condition" = "8:"
                                     "AlwaysCreate" = "11:FALSE"
                                     "DeleteAtUninstall" = "11:FALSE"
                                     "Transitive" = "11:FALSE"
                                         "Keys"
                                         {
-                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_7FAA828FD90B4CEB8C0CF29DF751F96E"
-                                            {
-                                            "Name" = "8:PluginAssemblies"
-                                            "Condition" = "8:"
-                                            "AlwaysCreate" = "11:FALSE"
-                                            "DeleteAtUninstall" = "11:FALSE"
-                                            "Transitive" = "11:FALSE"
-                                                "Keys"
-                                                {
-                                                }
-                                                "Values"
-                                                {
-                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E4D2EB4C89DB43B0B2532CB41E27D5B0"
-                                                    {
-                                                    "Name" = "8:Pygments.WLWriter"
-                                                    "Condition" = "8:"
-                                                    "Transitive" = "11:FALSE"
-                                                    "ValueTypes" = "3:1"
-                                                    "Value" = "8:[TARGETDIR]\\Pygments.WLWriter.dll"
-                                                    }
-                                                }
-                                            }
                                         }
                                         "Values"
                                         {
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E4D2EB4C89DB43B0B2532CB41E27D5B0"
+                                            {
+                                            "Name" = "8:Pygments.WLWriter"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:[TARGETDIR]\\Pygments.WLWriter.dll"
+                                            }
                                         }
                                     }
                                 }
