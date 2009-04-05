@@ -4,3 +4,5 @@ Pygments.WLWriter/obj/*
 Pygments.WLWriter/*.csproj.user
 External/pygments.dll
 *.sln.cache
+Pygments.WLWriter.Setup/Debug/
+Pygments.WLWriter.Setup/Release/
