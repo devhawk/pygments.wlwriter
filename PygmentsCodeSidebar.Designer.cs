@@ -62,7 +62,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 139);
+            this.label2.Location = new System.Drawing.Point(6, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 13);
             this.label2.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             this.language_selector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.language_selector.FormattingEnabled = true;
-            this.language_selector.Location = new System.Drawing.Point(3, 155);
+            this.language_selector.Location = new System.Drawing.Point(9, 155);
             this.language_selector.Name = "language_selector";
             this.language_selector.Size = new System.Drawing.Size(154, 21);
             this.language_selector.Sorted = true;
@@ -81,7 +81,7 @@
             // 
             // edit_code_button
             // 
-            this.edit_code_button.Location = new System.Drawing.Point(3, 239);
+            this.edit_code_button.Location = new System.Drawing.Point(9, 239);
             this.edit_code_button.Name = "edit_code_button";
             this.edit_code_button.Size = new System.Drawing.Size(154, 23);
             this.edit_code_button.TabIndex = 4;
@@ -93,7 +93,7 @@
             // 
             this.style_selector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.style_selector.FormattingEnabled = true;
-            this.style_selector.Location = new System.Drawing.Point(3, 195);
+            this.style_selector.Location = new System.Drawing.Point(9, 195);
             this.style_selector.Name = "style_selector";
             this.style_selector.Size = new System.Drawing.Size(154, 21);
             this.style_selector.Sorted = true;
@@ -103,7 +103,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 179);
+            this.label3.Location = new System.Drawing.Point(6, 179);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 5;
