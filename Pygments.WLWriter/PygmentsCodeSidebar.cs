@@ -21,6 +21,25 @@ namespace DevHawk
                 style_selector.Items.Add(style);
         }
 
+        protected override void OnSelectedContentChanged()
+        {
+            base.OnSelectedContentChanged();
+
+            PygmentLanguage selected_language = null;
+            foreach (PygmentLanguage item in language_selector.Items)
+            {
+                if (item.LookupName == SelectedContent.Properties["language"])
+                {
+                    selected_language = item;
+                    break;
+                }
+            }
+
+            language_selector.SelectedItem = selected_language;
+            style_selector.SelectedItem = SelectedContent.Properties["style"];
+
+        }
+
         private void edit_code_button_Click(object sender, EventArgs e)
         {
             var form = new CodeInsertForm();
