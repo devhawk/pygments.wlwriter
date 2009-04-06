@@ -55,11 +55,19 @@ namespace DevHawk
         }
     }
 
+#if DEBUG
+    [WriterPlugin("8647342E-C6F6-4230-979C-77E8BB3FA682", "Pygments.WLWriter",
+        Description = "Code Colorizer using Python pygments package",
+        ImagePath = "icon_16.png",
+        PublisherUrl = "http://devhawk.net")]
+    [InsertableContentSource("Insert Pygmented Code *DEV*", SidebarText = "Pygment Code *DEV*")]
+#else
     [WriterPlugin("2EC9848E-067D-4e79-BAB7-06CA927DB962", "Pygments.WLWriter",
-        Description = "Code Colorizer using Python pygments package", 
-        ImagePath="icon_16.png",
+        Description = "Code Colorizer using Python pygments package",
+        ImagePath = "icon_16.png",
         PublisherUrl = "http://devhawk.net")]
     [InsertableContentSource("Insert Pygmented Code", SidebarText = "Pygment Code")]
+#endif
     public class PygmentsCodeSource : SmartContentSource
     {
         static ScriptEngine _engine;
