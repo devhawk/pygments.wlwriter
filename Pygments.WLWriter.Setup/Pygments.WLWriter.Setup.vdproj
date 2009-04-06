@@ -352,12 +352,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_7A71A964840F9CF55439A71AEB4E9D63"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_D3279A482A614D1B8F481427D441D550"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -457,6 +451,12 @@
         "OwnerKey" = "8:_D48418F625F25602BEB1554B8B4523C1"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_7A71A964840F9CF55439A71AEB4E9D63"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -475,6 +475,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -491,6 +499,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -1149,7 +1165,7 @@
         "PackageCode" = "8:{048D92BC-CCDE-47BF-81F0-F4AAF61DE430}"
         "UpgradeCode" = "8:{FB72E440-B840-4272-9367-3D74653B3F5F}"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
@@ -1688,7 +1704,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D3279A482A614D1B8F481427D441D550"
             {
-            "SourcePath" = "8:..\\Pygments.WLWriter\\obj\\Debug\\Pygments.WLWriter.dll"
+            "SourcePath" = "8:..\\Pygments.WLWriter\\obj\\Release\\Pygments.WLWriter.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_21C7C7C3E1B3412FAA8189B1346E1B95"
