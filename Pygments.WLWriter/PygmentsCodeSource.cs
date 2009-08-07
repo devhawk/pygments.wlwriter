@@ -7,6 +7,8 @@ using System.IO;
 using System.Threading;
 using System.Collections.Generic;
 using Microsoft.Scripting;
+using IronPython.Runtime.Operations;
+using Microsoft;
 
 namespace DevHawk
 {
@@ -119,7 +121,7 @@ namespace DevHawk
                         _init_thread.Join();
 
                         var f = _scope.GetVariable<PythonFunction>("get_lexers");
-                        var r = (PythonGenerator)f.Target.DynamicInvoke();
+                        var r = (PythonGenerator)_engine.Operations.Invoke(f);
                         var lanugages_list = new List<PygmentLanguage>();
                         foreach (PythonTuple o in r)
                         {
@@ -149,7 +151,7 @@ namespace DevHawk
                         _init_thread.Join();
 
                         var f = _scope.GetVariable<PythonFunction>("get_styles");
-                        var r = (PythonGenerator)f.Target.DynamicInvoke();
+                        var r = (PythonGenerator)_engine.Operations.Invoke(f);
                         var styles_list = new List<string>();
                         foreach (string o in r)
                         {
@@ -164,7 +166,7 @@ namespace DevHawk
             }
         }
 
-        PythonFunction _highlight_function;
+        Func<object, object, object, string> _highlight_function;
 
         public string Highlight(string code, string lexer_name, string style_name)
         {
@@ -173,14 +175,15 @@ namespace DevHawk
                 using (var wc = new WaitCursor())
                 {
                     _init_thread.Join();
-
-                    _highlight_function = _scope.GetVariable<PythonFunction>("generate_html");
+                    
+                    var f = _scope.GetVariable<PythonFunction>("generate_html");
+                    _highlight_function = _engine.Operations.ConvertTo<Func<object, object, object, string>>(f);
                 }
             }
 
             using (var wc = new WaitCursor())
             {
-                return (string)_highlight_function.Target.DynamicInvoke(code, lexer_name, style_name);
+                return _highlight_function(code, lexer_name, style_name);
             }
         }
 
