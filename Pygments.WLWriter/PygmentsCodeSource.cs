@@ -78,19 +78,13 @@ namespace DevHawk
 
         private void InitializeHosting()
         {
-            //var asm = System.Reflection.Assembly.GetAssembly(typeof(PygmentsCodeSource));
-            //var folder = Path.GetDirectoryName(asm.Location);
-            
             _engine = IronPython.Hosting.Python.CreateEngine();
-            //_engine.SetSearchPaths(new string[] { folder, @"c:\Program Files\IronPython 2.0.1\Lib" });
 
             System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
             var stream = asm.GetManifestResourceStream("DevHawk.PygmentsCodeSource.py");
             var names = asm.GetManifestResourceNames();
 
             _source = _engine.CreateScriptSource(new BasicStreamContentProvider(stream), "PygmentsCodeSource.py");
-
-            //_source = _engine.CreateScriptSourceFromFile(Path.Combine(folder, "PygmentsCodeSource.py"));
         }
 
         public PygmentsCodeSource()
@@ -102,11 +96,7 @@ namespace DevHawk
             {
                  _scope = _engine.CreateScope();
 
-                _init_thread = new Thread(() =>
-                    {
-                        _source.Execute(_scope);
-                    });
-
+                _init_thread = new Thread(() => { _source.Execute(_scope); });
                 _init_thread.Start();
             }
             catch (Exception ex)
@@ -205,9 +195,6 @@ namespace DevHawk
 
             return result;
         }
-
-
-        
 
         public override SmartContentEditor CreateEditor(ISmartContentEditorSite editorSite)
         {
