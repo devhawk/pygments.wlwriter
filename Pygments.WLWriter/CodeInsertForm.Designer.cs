@@ -52,16 +52,18 @@
             this.ok_button.Location = new System.Drawing.Point(616, 3);
             this.ok_button.Name = "ok_button";
             this.ok_button.Size = new System.Drawing.Size(75, 23);
-            this.ok_button.TabIndex = 1;
+            this.ok_button.TabIndex = 2;
             this.ok_button.Text = "OK";
             this.ok_button.UseVisualStyleBackColor = true;
             // 
             // cancel_button
             // 
+            this.cancel_button.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.cancel_button.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancel_button.Location = new System.Drawing.Point(697, 3);
             this.cancel_button.Name = "cancel_button";
             this.cancel_button.Size = new System.Drawing.Size(75, 23);
-            this.cancel_button.TabIndex = 0;
+            this.cancel_button.TabIndex = 3;
             this.cancel_button.Text = "Cancel";
             this.cancel_button.UseVisualStyleBackColor = true;
             // 
@@ -80,13 +82,19 @@
             // 
             // CodeInsertForm
             // 
+            this.AcceptButton = this.ok_button;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.cancel_button;
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.code_text_box);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CodeInsertForm";
-            this.Text = "CodeInsertForm";
+            this.ShowInTaskbar = false;
+            this.Text = "Pygments for Windows Live Writer";
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

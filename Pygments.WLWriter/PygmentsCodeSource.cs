@@ -62,16 +62,31 @@ namespace DevHawk
         Description = "Code Colorizer using Python pygments package",
         ImagePath = "icon_16.png",
         PublisherUrl = "http://devhawk.net")]
-    [InsertableContentSource("Insert Pygmented Code *DEV*", SidebarText = "Pygment Code *DEV*")]
+    [InsertableContentSource("Pygmented Code *DEV*", SidebarText = "Pygment Code *DEV*")]
 #else
     [WriterPlugin("2EC9848E-067D-4e79-BAB7-06CA927DB962", "Pygments.WLWriter",
         Description = "Code Colorizer using Python pygments package",
         ImagePath = "icon_16.png",
         PublisherUrl = "http://devhawk.net")]
-    [InsertableContentSource("Insert Pygmented Code", SidebarText = "Pygment Code")]
+    [InsertableContentSource("Pygmented Code", SidebarText = "Pygment Code")]
 #endif
     public class PygmentsCodeSource : SmartContentSource
     {
+        internal static System.Reflection.Assembly Assembly
+        {
+            get
+            {
+                return System.Reflection.Assembly.GetExecutingAssembly();
+            }
+        }
+        internal static Version AssemblyVersion
+        {
+            get
+            {
+                return PygmentsCodeSource.Assembly.GetName().Version;
+            }
+        }
+
         static ScriptEngine _engine;
         static ScriptSource _source;
 
@@ -193,6 +208,9 @@ namespace DevHawk
             var result = form.ShowDialog(dialogOwner);
             if (result == DialogResult.OK) 
             {
+                if (form.Code.Trim().Length == 0)
+                    return DialogResult.Cancel;
+
                 newContent.Properties["code"] = form.Code;
             }
 

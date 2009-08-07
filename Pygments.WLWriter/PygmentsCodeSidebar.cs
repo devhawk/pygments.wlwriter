@@ -14,6 +14,8 @@ namespace DevHawk
         {
             InitializeComponent();
 
+            labelVersion.Text = string.Format("v{0}", PygmentsCodeSource.AssemblyVersion);
+
             foreach (var lang in languages)
                 language_selector.Items.Add(lang);
 

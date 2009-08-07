@@ -37,6 +37,7 @@
             this.style_selector = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.labelVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 139);
+            this.label2.Location = new System.Drawing.Point(6, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(119, 13);
             this.label2.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             this.language_selector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.language_selector.FormattingEnabled = true;
-            this.language_selector.Location = new System.Drawing.Point(9, 155);
+            this.language_selector.Location = new System.Drawing.Point(9, 165);
             this.language_selector.Name = "language_selector";
             this.language_selector.Size = new System.Drawing.Size(154, 21);
             this.language_selector.Sorted = true;
@@ -81,7 +82,7 @@
             // 
             // edit_code_button
             // 
-            this.edit_code_button.Location = new System.Drawing.Point(9, 239);
+            this.edit_code_button.Location = new System.Drawing.Point(9, 249);
             this.edit_code_button.Name = "edit_code_button";
             this.edit_code_button.Size = new System.Drawing.Size(154, 23);
             this.edit_code_button.TabIndex = 4;
@@ -93,7 +94,7 @@
             // 
             this.style_selector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.style_selector.FormattingEnabled = true;
-            this.style_selector.Location = new System.Drawing.Point(9, 195);
+            this.style_selector.Location = new System.Drawing.Point(9, 205);
             this.style_selector.Name = "style_selector";
             this.style_selector.Size = new System.Drawing.Size(154, 21);
             this.style_selector.Sorted = true;
@@ -103,7 +104,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 179);
+            this.label3.Location = new System.Drawing.Point(6, 189);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 13);
             this.label3.TabIndex = 5;
@@ -119,10 +120,20 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "For WL Writer";
             // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.Location = new System.Drawing.Point(117, 126);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(0, 13);
+            this.labelVersion.TabIndex = 8;
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // PygmentsCodeSidebar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.style_selector);
             this.Controls.Add(this.label3);
@@ -149,5 +160,6 @@
         private System.Windows.Forms.ComboBox style_selector;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelVersion;
     }
 }
