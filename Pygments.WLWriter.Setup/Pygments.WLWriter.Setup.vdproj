@@ -1322,7 +1322,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Pygments for Windows Live Writer"
         "ProductCode" = "8:{DB6FDEDA-6769-48A0-982A-1EE99E88581D}"
-        "PackageCode" = "8:{EBE97416-0403-4298-A757-0DE9838522F4}"
+        "PackageCode" = "8:{C2A03FF3-8B2E-461C-B392-B024D24290BB}"
         "UpgradeCode" = "8:{FB72E440-B840-4272-9367-3D74653B3F5F}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
@@ -1396,35 +1396,63 @@
                     "Transitive" = "11:FALSE"
                         "Keys"
                         {
-                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_9AD199DBC5E64D0BA346A331DACC4468"
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_DBC149ED31EE4493AAE694CCC26A3A77"
                             {
-                            "Name" = "8:Windows Live Writer"
+                            "Name" = "8:Microsoft"
                             "Condition" = "8:"
                             "AlwaysCreate" = "11:FALSE"
                             "DeleteAtUninstall" = "11:FALSE"
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
-                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_1AB7BF73B6A14B9497673437B2378CFF"
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_7D5DA7E6C6F342E783098F95529D2023"
                                     {
-                                    "Name" = "8:PluginAssemblies"
+                                    "Name" = "8:Windows Live"
                                     "Condition" = "8:"
                                     "AlwaysCreate" = "11:FALSE"
                                     "DeleteAtUninstall" = "11:FALSE"
                                     "Transitive" = "11:FALSE"
                                         "Keys"
                                         {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_98A8384AC6F34C40BE373D9A053E60AF"
+                                            {
+                                            "Name" = "8:Writer"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_A5861FC134C540529B16D71C0AF666D1"
+                                                    {
+                                                    "Name" = "8:PluginAssemblies"
+                                                    "Condition" = "8:"
+                                                    "AlwaysCreate" = "11:FALSE"
+                                                    "DeleteAtUninstall" = "11:FALSE"
+                                                    "Transitive" = "11:FALSE"
+                                                        "Keys"
+                                                        {
+                                                        }
+                                                        "Values"
+                                                        {
+                                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E4D2EB4C89DB43B0B2532CB41E27D5B0"
+                                                            {
+                                                            "Name" = "8:Pygments.WLWriter"
+                                                            "Condition" = "8:"
+                                                            "Transitive" = "11:FALSE"
+                                                            "ValueTypes" = "3:1"
+                                                            "Value" = "8:[TARGETDIR]\\Pygments.WLWriter.dll"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                "Values"
+                                                {
+                                                }
+                                            }
                                         }
                                         "Values"
                                         {
-                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E4D2EB4C89DB43B0B2532CB41E27D5B0"
-                                            {
-                                            "Name" = "8:Pygments.WLWriter"
-                                            "Condition" = "8:"
-                                            "Transitive" = "11:FALSE"
-                                            "ValueTypes" = "3:1"
-                                            "Value" = "8:[TARGETDIR]\\Pygments.WLWriter.dll"
-                                            }
                                         }
                                     }
                                 }
@@ -1864,7 +1892,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_D3279A482A614D1B8F481427D441D550"
             {
-            "SourcePath" = "8:..\\Pygments.WLWriter\\obj\\Debug\\Pygments.WLWriter.DEV.dll"
+            "SourcePath" = "8:..\\Pygments.WLWriter\\obj\\Release\\Pygments.WLWriter.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_21C7C7C3E1B3412FAA8189B1346E1B95"
