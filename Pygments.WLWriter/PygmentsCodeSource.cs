@@ -99,8 +99,6 @@ namespace DevHawk
 
             System.Reflection.Assembly asm = System.Reflection.Assembly.GetExecutingAssembly();
             var stream = asm.GetManifestResourceStream("DevHawk.PygmentsCodeSource.py");
-            var names = asm.GetManifestResourceNames();
-
             _source = _engine.CreateScriptSource(new BasicStreamContentProvider(stream), "PygmentsCodeSource.py");
         }
 
@@ -135,7 +133,7 @@ namespace DevHawk
                     {
                         _init_thread.Join();
 
-                        var f = _scope.GetVariable<PythonFunction>("get_lexers");
+                        var f = _scope.GetVariable<PythonFunction>("get_all_lexers");
                         var r = (PythonGenerator)_engine.Operations.Invoke(f);
                         var lanugages_list = new List<PygmentLanguage>();
                         foreach (PythonTuple o in r)
@@ -165,7 +163,7 @@ namespace DevHawk
                     {
                         _init_thread.Join();
 
-                        var f = _scope.GetVariable<PythonFunction>("get_styles");
+                        var f = _scope.GetVariable<PythonFunction>("get_all_styles");
                         var r = (PythonGenerator)_engine.Operations.Invoke(f);
                         var styles_list = new List<string>();
                         foreach (string o in r)
@@ -181,24 +179,24 @@ namespace DevHawk
             }
         }
 
-        Func<object, object, object, string> _highlight_function;
+        Func<object, object, object, string> _generatehtml_function;
 
-        public string Highlight(string code, string lexer_name, string style_name)
+        public string GenerateHtml(string code, string lexer_name, string style_name)
         {
-            if (_highlight_function == null)
+            if (_generatehtml_function == null)
             {
                 using (var wc = new WaitCursor())
                 {
                     _init_thread.Join();
                     
                     var f = _scope.GetVariable<PythonFunction>("generate_html");
-                    _highlight_function = _engine.Operations.ConvertTo<Func<object, object, object, string>>(f);
+                    _generatehtml_function = _engine.Operations.ConvertTo<Func<object, object, object, string>>(f);
                 }
             }
 
             using (var wc = new WaitCursor())
             {
-                return _highlight_function(code, lexer_name, style_name);
+                return _generatehtml_function(code, lexer_name, style_name);
             }
         }
 
@@ -226,7 +224,7 @@ namespace DevHawk
         {
             if (!content.Properties.Contains("html"))
             {
-                content.Properties["html"] = Highlight(
+                content.Properties["html"] = GenerateHtml(
                     content.Properties["code"],
                     content.Properties["language"],
                     content.Properties["style"]);
