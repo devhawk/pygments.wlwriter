@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Windows.Forms;
-using WindowsLive.Writer.Api;
-using Microsoft.Scripting.Hosting;
-using IronPython.Runtime;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
-using System.Collections.Generic;
+using System.Windows.Forms;
+using IronPython.Runtime;
 using Microsoft.Scripting;
-using IronPython.Runtime.Operations;
-using Microsoft;
+using Microsoft.Scripting.Hosting;
+using Microsoft.Scripting.Utils;
+using WindowsLive.Writer.Api;
+using System.Collections;
 
 namespace DevHawk
 {
@@ -134,10 +134,11 @@ namespace DevHawk
                         _init_thread.Join();
 
                         var f = _scope.GetVariable<PythonFunction>("get_all_lexers");
-                        var r = (PythonGenerator)_engine.Operations.Invoke(f);
+                        var r = (IEnumerator)(PythonGenerator)_engine.Operations.Invoke(f);
                         var lanugages_list = new List<PygmentLanguage>();
-                        foreach (PythonTuple o in r)
+                        while (r.MoveNext())
                         {
+                            PythonTuple o = r.Current as PythonTuple;
                             lanugages_list.Add(new PygmentLanguage()
                                 {
                                     LongName = (string)o[0],
@@ -164,11 +165,11 @@ namespace DevHawk
                         _init_thread.Join();
 
                         var f = _scope.GetVariable<PythonFunction>("get_all_styles");
-                        var r = (PythonGenerator)_engine.Operations.Invoke(f);
+                        var r = (IEnumerator)(PythonGenerator)_engine.Operations.Invoke(f);
                         var styles_list = new List<string>();
-                        foreach (string o in r)
+                        while (r.MoveNext())
                         {
-                            styles_list.Add(o);
+                            styles_list.Add((string)r.Current);
                         }
 
                         _styles = styles_list.ToArray();
