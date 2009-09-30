@@ -22,7 +22,25 @@
         "Entry"
         {
         "MsmKey" = "8:_26E66960902165A45D361F7198A8D0EB"
+        "OwnerKey" = "8:_3FF6037FD1E1AF09AE9D79A02AF490B3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_26E66960902165A45D361F7198A8D0EB"
         "OwnerKey" = "8:_D3279A482A614D1B8F481427D441D550"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_26E66960902165A45D361F7198A8D0EB"
+        "OwnerKey" = "8:_AF90C7AC3E7A03A0907FE7307DBFDB8E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_26E66960902165A45D361F7198A8D0EB"
+        "OwnerKey" = "8:_44A8F9B7E1F53BBA8C1BA34562790BCA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -166,7 +184,7 @@
         "Entry"
         {
         "MsmKey" = "8:_77E5E4536D984C586DB7009D27C9F632"
-        "OwnerKey" = "8:_44A8F9B7E1F53BBA8C1BA34562790BCA"
+        "OwnerKey" = "8:_26E66960902165A45D361F7198A8D0EB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -191,6 +209,12 @@
         {
         "MsmKey" = "8:_77E5E4536D984C586DB7009D27C9F632"
         "OwnerKey" = "8:_3005D60F8234CD39A99F19B6D19C6534"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_77E5E4536D984C586DB7009D27C9F632"
+        "OwnerKey" = "8:_44A8F9B7E1F53BBA8C1BA34562790BCA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -256,13 +280,13 @@
         "Entry"
         {
         "MsmKey" = "8:_87F39390D6F0B6CB5209FC6EFABEB5AB"
-        "OwnerKey" = "8:_77E5E4536D984C586DB7009D27C9F632"
+        "OwnerKey" = "8:_26E66960902165A45D361F7198A8D0EB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_87F39390D6F0B6CB5209FC6EFABEB5AB"
-        "OwnerKey" = "8:_26E66960902165A45D361F7198A8D0EB"
+        "OwnerKey" = "8:_77E5E4536D984C586DB7009D27C9F632"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -322,12 +346,6 @@
         "Entry"
         {
         "MsmKey" = "8:_C276C005FD121ABA86B9AEE9ABD5E50E"
-        "OwnerKey" = "8:_77E5E4536D984C586DB7009D27C9F632"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C276C005FD121ABA86B9AEE9ABD5E50E"
         "OwnerKey" = "8:_44A8F9B7E1F53BBA8C1BA34562790BCA"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -335,6 +353,12 @@
         {
         "MsmKey" = "8:_C276C005FD121ABA86B9AEE9ABD5E50E"
         "OwnerKey" = "8:_3005D60F8234CD39A99F19B6D19C6534"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C276C005FD121ABA86B9AEE9ABD5E50E"
+        "OwnerKey" = "8:_77E5E4536D984C586DB7009D27C9F632"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -418,6 +442,54 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3FF6037FD1E1AF09AE9D79A02AF490B3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_AF90C7AC3E7A03A0907FE7307DBFDB8E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3005D60F8234CD39A99F19B6D19C6534"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_44A8F9B7E1F53BBA8C1BA34562790BCA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_26E66960902165A45D361F7198A8D0EB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_77E5E4536D984C586DB7009D27C9F632"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C276C005FD121ABA86B9AEE9ABD5E50E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_87F39390D6F0B6CB5209FC6EFABEB5AB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_EB59AC07047EEE6B2AC223EB8461A8FC"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -479,54 +551,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_7420686772E351036EC5A27FC5146FC7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3FF6037FD1E1AF09AE9D79A02AF490B3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AF90C7AC3E7A03A0907FE7307DBFDB8E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3005D60F8234CD39A99F19B6D19C6534"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_44A8F9B7E1F53BBA8C1BA34562790BCA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_77E5E4536D984C586DB7009D27C9F632"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_26E66960902165A45D361F7198A8D0EB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C276C005FD121ABA86B9AEE9ABD5E50E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_87F39390D6F0B6CB5209FC6EFABEB5AB"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -638,7 +662,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Dynamic, Version=0.9.6.20, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_26E66960902165A45D361F7198A8D0EB"
@@ -669,7 +693,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:IronPython, Version=2.6.0.20, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_3005D60F8234CD39A99F19B6D19C6534"
@@ -731,7 +755,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Mshtml, Version=14.0.8064.206, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Mshtml, Version=14.0.8089.726, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_3D12CF03B20CC4D7C088E3CB3494CF97"
@@ -762,7 +786,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Controls, Version=14.0.8064.206, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Controls, Version=14.0.8089.726, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_3EAB29880A4BC05ABD70AEE9E0446FE6"
@@ -793,7 +817,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Localization, Version=14.0.8064.206, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Localization, Version=14.0.8089.726, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_3F8BF1C29C2A4DEBAB8C2FBA7186DBB8"
@@ -855,7 +879,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Scripting.Debugging, Version=0.9.6.20, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Scripting.Debugging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_44A8F9B7E1F53BBA8C1BA34562790BCA"
@@ -886,7 +910,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Interop, Version=14.0.8064.206, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Interop, Version=14.0.8089.726, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_7420686772E351036EC5A27FC5146FC7"
@@ -917,7 +941,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Scripting, Version=0.9.6.20, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Scripting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_77E5E4536D984C586DB7009D27C9F632"
@@ -948,7 +972,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Interop.Mshtml, Version=14.0.8064.206, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Interop.Mshtml, Version=14.0.8089.726, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_7A210B89763280471143E09BE344C723"
@@ -1010,7 +1034,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:IronPython.Modules, Version=2.6.0.20, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:IronPython.Modules, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_AF90C7AC3E7A03A0907FE7307DBFDB8E"
@@ -1041,7 +1065,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.CoreServices, Version=14.0.8064.206, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.CoreServices, Version=14.0.8089.726, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_B1AE194AF6805C12DF4C9D6EC2B88543"
@@ -1072,7 +1096,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Scripting.Core, Version=0.9.6.20, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Scripting.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
                     "_C276C005FD121ABA86B9AEE9ABD5E50E"
@@ -1123,7 +1147,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.BrowserControl, Version=14.0.8064.206, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.BrowserControl, Version=14.0.8089.726, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_C761F902F169282E64EF63FBA40DCAFC"
@@ -1154,7 +1178,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Passport, Version=14.0.8064.206, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.Passport, Version=14.0.8089.726, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_D66F6F6570B66E660526BD31B64988D2"
@@ -1185,7 +1209,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.HtmlParser, Version=14.0.8064.206, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
+            "AssemblyAsmDisplayName" = "8:WindowsLive.Writer.HtmlParser, Version=14.0.8089.726, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_EA04BA355E1EC57EBFDA5EC8C711EEEE"
@@ -1321,14 +1345,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Pygments for Windows Live Writer"
-        "ProductCode" = "8:{DEC24DD3-B35E-4FD9-9E03-BD01D3950708}"
-        "PackageCode" = "8:{B00F1BC3-C7A4-4F0C-BDEE-45671D4E9BCE}"
+        "ProductCode" = "8:{DF5A5414-BF5A-42DF-98CD-FA40C9C117AF}"
+        "PackageCode" = "8:{DAFAA635-86A8-49F0-9F6A-B2D4C3B76358}"
         "UpgradeCode" = "8:{FB72E440-B840-4272-9367-3D74653B3F5F}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.3"
+        "ProductVersion" = "8:1.0.4"
         "Manufacturer" = "8:DevHawk"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
